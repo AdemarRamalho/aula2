@@ -1,0 +1,20 @@
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Titulo:</th>
+            <th sorted="col">Autor:</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let livro of lista;">
+            <td>
+                {{livro.titulo}}
+            </td>
+            <td>
+                {{livro.autor}}
+            </td>
+
+        </tr>
+    </tbody>
+</table>
+
