@@ -1,8 +1,9 @@
-<table>
-    <thead class="thead-dark">
+<table class=" table table-bordered table-striped">
+    <thead>
         <tr>
             <th scope="col">Nome:</th>
             <th scope="col">Ano:</th>
+            <button (click)="abriModal(abrir)" type="submit" class="btn btn-dark btn-outline-success">Novo</button>
         </tr>
     </thead>
     <tbody>
@@ -16,4 +17,22 @@
 
         </tr>
     </tbody>
+    <button routerLink="/admin/pessoas" type="button">Lista de pessoas</button>
+    <button routerLink="/admin/livros" type="button">Lista de Livros</button>
 </table>
+
+<ng-template #abrir let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Salvar ou Excluir Pessoas</h4>
+        <button type="button" class="btn-close" aria-label="Close"(click)="modal.dismiss('Cross click')">
+
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-carrosdetails (retorno)="addNaLista($event)"></app-carrosdetails>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light"(click)="modal.close('Close click')">Fechar</button>
+    </div>
+</ng-template>

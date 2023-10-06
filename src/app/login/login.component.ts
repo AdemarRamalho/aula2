@@ -10,7 +10,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 
 export class LoginComponent {
+
   usuario!: Usuario;
+
   roteador = inject(Router);
 
   constructor(){
@@ -20,7 +22,7 @@ export class LoginComponent {
 
   logar(){
     if(this.usuario.login == 'admin' && this.usuario.senha == "admin"){
-      console.log(this.roteador.navigate(['/admin/pessoas']));
+      console.log(this.roteador.navigate(['admin/pessoas']));
 
     }else{
       alert('usuario ou senha incorretos')

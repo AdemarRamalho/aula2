@@ -3,6 +3,7 @@
         <tr>
             <th scope="col">Titulo:</th>
             <th sorted="col">Autor:</th>
+            <button (click)="abriModal(abrir)" type="submit" class="btn btn-dark btn-outline-success">Novo</button>
         </tr>
     </thead>
     <tbody>
@@ -16,5 +17,23 @@
 
         </tr>
     </tbody>
+    <button routerLink="/admin/pessoas" type="button">Lista de pessoas</button>
+    <button routerLink="/admin/carros" type="button">Lista de Carros</button>
 </table>
+
+<ng-template #abrir let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Salvar ou Excluir Pessoas</h4>
+        <button type="button" class="btn-close" aria-label="Close"(click)="modal.dismiss('Cross click')">
+
+        </button>
+    </div>
+    <div class="modal-body">
+        <app-livrosdetails (retorno)="addNaLista($event)"></app-livrosdetails>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light"(click)="modal.close('Close click')">Fechar</button>
+    </div>
+</ng-template>
 
