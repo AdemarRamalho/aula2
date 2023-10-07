@@ -2,8 +2,12 @@
 <table class=" table table-bordered table-striped table-dark">
     <thead class="table-active">
         <tr>
-            <th scope="col">Nome:</th>
-            <th scope="col">Ano:</th>
+            <th class="nome" scope="col">Nome:</th>
+            <th  class="ano" scope="col">Ano:</th>
+            <th class="d-flex Pesquisar">
+                <button class="btn btn-success" (click)="abriModal(abrir)" type="submit">Novo</button>
+                <input type="text" placeholder="Pesquisar">
+            </th>
             
         </tr>
     </thead>
@@ -31,7 +35,6 @@
           </tr>
         </ng-container>
     </tbody>
-    <button (click)="abriModal(abrir)" type="submit" class="btn btn-dark btn-lg">Novo</button>
 </table>
 </section>
 <ng-template #abrir let-modal>

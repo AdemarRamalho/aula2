@@ -1,6 +1,6 @@
 table {
     width: 100%;
-    max-width: 800px; 
+    max-width: 100%; 
     margin: 0 auto;
   
   th {
@@ -10,8 +10,14 @@ table {
     text-align: left;
     border-bottom: 2px solid #333;
   }
-  .btn-dark{
-    margin-left: 114%;
+  .d-flex{
+    justify-content: space-between;
+  }
+  .nome{
+    width: 33%;
+  }
+  .ano{
+    width: 33%;
   }
   td {
     padding: 8px;
