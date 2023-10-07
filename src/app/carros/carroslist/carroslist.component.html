@@ -1,26 +1,39 @@
-<table class=" table table-bordered table-striped">
-    <thead>
+<section class="table-responsive">
+<table class=" table table-bordered table-striped table-dark">
+    <thead class="table-active">
         <tr>
             <th scope="col">Nome:</th>
             <th scope="col">Ano:</th>
-            <button (click)="abriModal(abrir)" type="submit" class="btn btn-dark btn-outline-success">Novo</button>
+            
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let carro of lista;">
-            <td>
+        <ng-container *ngFor="let carro of lista; let i = index;">
+            <tr *ngIf="!editMode[i]">
+            <td  *ngIf="!editMode[i]">
                 {{carro.nome}}
             </td>
-            <td>
+            <td  *ngIf="!editMode[i]">
                 {{carro.ano}}
             </td>
-
+            <td>
+                <button (click)="editarItem(i)" class="btn btn-warning" type="submit">Editar</button>
+            </td>
         </tr>
+        
+        <tr *ngIf="editMode[i]">
+            <td><input [(ngModel)]="carroEmEdicao.nome" placeholder="Nome"></td>
+            <td><input [(ngModel)]="carroEmEdicao.ano" placeholder="Ano"></td>
+            <td>
+              <button (click)="salvarEdicao(i)" class="btn btn-success">Salvar</button>
+              <button (click)="cancelarEdicao(i)" class="btn btn-danger">Cancelar</button>
+            </td>
+          </tr>
+        </ng-container>
     </tbody>
-    <button routerLink="/admin/pessoas" type="button">Lista de pessoas</button>
-    <button routerLink="/admin/livros" type="button">Lista de Livros</button>
+    <button (click)="abriModal(abrir)" type="submit" class="btn btn-dark btn-lg">Novo</button>
 </table>
-
+</section>
 <ng-template #abrir let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Salvar ou Excluir Pessoas</h4>

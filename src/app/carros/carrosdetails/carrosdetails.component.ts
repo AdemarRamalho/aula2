@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CarrosdetailsComponent {
   roteador = inject(ActivatedRoute);
-  carro:Carro = new Carro("",0);
-
+  carro:Carro = new Carro("",0,0);
   @Output() retorno = new EventEmitter<Carro>()
 
   constructor(){
